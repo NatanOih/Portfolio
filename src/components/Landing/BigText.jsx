@@ -23,6 +23,15 @@ export const BigText = ({ scaling, setSelectedPage, setscaling }) => {
     },
   };
 
+  const PopLetters = {
+    qwe: { opacity: 0 },
+    asd: {
+      opacity: 1,
+      y: [-1, -1.9, -2.7, 1],
+      scaleY: [0.3, 1.3, 0.8, 1],
+    },
+  };
+
   const text = [
     "fullstack",
     "developer",
@@ -31,37 +40,61 @@ export const BigText = ({ scaling, setSelectedPage, setscaling }) => {
     'IT>IS<A-HABIT"',
   ];
 
-  const shift = ["3vw", "10vw", "15vw", "7vw", "14vw"];
+  const shiftWide = ["3vw", "10vw", "15vw", "7vw", "3vw"];
+  const shiftNerrow = ["1.5vw", "5vw", "6vw", "4vw", "1.5vw"];
 
+  const wideScreenText =
+    "tracking-[2.2vw] text-[9.8vw] h-[0.4vw] m-2.5 leading-[1.1vw] ";
+  const nerrowScreenText =
+    "text-[13vw] tracking-[1.1vw] h-[5vw] leading-[4.3vw]";
   return (
-    <section className=" md:h-[100vh] h-[50vh] p-4 md:mt-10 mt-24 ">
-      <div className=" flex flex-wrap m-[2vw] BigTextStyles ">
+    <section className="  h-[100%] p-2 md:mt-10 mt-24">
+      <div className="z-200 flex flex-wrap m-[2vw] my-12 font-extrabold BigTextStyles">
         {text.map((word, id) => {
           return (
             <div
               key={`word  ${id}`}
-              style={{ marginLeft: shift[id] }}
-              className="container uppercase p-[3.7vw] whitespace-nowrap overflow-hidden"
+              style={{
+                marginLeft: isAboveMeduimScreens
+                  ? shiftWide[id]
+                  : shiftNerrow[id],
+              }}
+              className="container uppercase p-[3.5vw] whitespace-nowrap"
             >
               <motion.h1
-                className="tracking-[1.3vw] text-[10.8vw] h-[1.4vw] leading-[1.6vw]"
+                className={`${
+                  isAboveMeduimScreens ? wideScreenText : nerrowScreenText
+                }`}
+                key={id * 2.2}
                 variants={textReveal}
                 initial="hidden"
                 animate="visible"
+                style={id === text.length - 1 && { color: "#FF0032" }}
                 transition={{
                   duration: 1,
-                  delay: id === text.length - 1 ? 2.6 : id * 0.5,
+                  delay: id === text.length - 1 ? 2.6 : id * 0.4,
                 }}
               >
                 {word.split("").map((letter, id) => (
                   <motion.span
-                    variants={spanVariants}
-                    initial="regular"
-                    whileHover="hover"
-                    key={id}
-                    className="relative inline-block cursor-default"
+                    key={id * 1.3}
+                    variants={PopLetters}
+                    initial="qwe"
+                    animate="asd"
+                    transition={{
+                      duration: 0.4,
+                      delay: id === text.length - 1 ? 2.5 : id * 0.3,
+                    }}
                   >
-                    {letter}
+                    <motion.span
+                      variants={spanVariants}
+                      initial="regular"
+                      whileHover="hover"
+                      key={id}
+                      className="relative inline-block cursor-default"
+                    >
+                      {letter}
+                    </motion.span>
                   </motion.span>
                 ))}
               </motion.h1>

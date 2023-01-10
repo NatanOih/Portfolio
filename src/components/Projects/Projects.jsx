@@ -98,7 +98,7 @@ export const Projects = () => {
       {/* PROJECTS */}
       <div className="flex justify-center my-32 mx-2">
         <motion.div
-          className="md:grid md:grid-cols-3 sm:grid sm:grid-cols-2"
+          className=" sm:grid sm:grid-cols-2"
           variants={container}
           initial="hidden"
           whileInView="visible"
@@ -121,7 +121,7 @@ export const Projects = () => {
 
           {/* ROW 3 */}
           <Project title="3" />
-          <Project title="3" />
+
           {/* <div
             className="flex justify-center text-center items-center p-10 bg-blue-400
               max-w-[400px] max-h-[400px] text-2xl font-playfair font-semibold"
