@@ -8,7 +8,6 @@ export const Skills = ({ isAboveMediumScreens, setMouseBoundries }) => {
   const [isRevealed, setIsRevealed] = useState(false);
   const spotLight = useRef();
   const [mouse, setMouse] = useState({ x: 0, y: 0 });
-
   const [transition, setTransition] = useState(
     "opacity 1s cubic-bezier(0.77, 0, 0.175, 1)"
   );
@@ -19,7 +18,7 @@ export const Skills = ({ isAboveMediumScreens, setMouseBoundries }) => {
     animation: "fadeIn 1s cubic-bezier(0.77, 0, 0.175, 1) 0s forwards",
   };
   const mask2 = {
-    clipPath: `circle(1000px at 50% 50%)`,
+    clipPath: `circle(60% at 50% 50%)`,
     transition,
     animation: "fadeIn 1s cubic-bezier(0.77, 0, 0.175, 1) 0s forwards",
   };
@@ -36,8 +35,8 @@ export const Skills = ({ isAboveMediumScreens, setMouseBoundries }) => {
     const localX = Math.round(event.clientX);
     const localY = Math.round(event.pageY);
     const { offsetTop } = spotLight.current;
-
     setMouseBoundries(offsetTop);
+
     setMouse({
       x: localX,
       y: localY - offsetTop,
@@ -89,7 +88,7 @@ export const Skills = ({ isAboveMediumScreens, setMouseBoundries }) => {
             SKILLS
           </span>
         </h3>
-        <div className="md:flex justify-between">
+        <div className="md:flex gap-20 p-2 justify-center">
           <Tech />
           <Tech />
         </div>

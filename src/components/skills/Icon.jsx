@@ -1,9 +1,9 @@
 import React from "react";
 
-export const Icon = ({ src }) => {
+export const Icon = ({ src, className }) => {
   return (
     <img
-      className="md:max-w-[60px] max-w-[50px]"
+      className={`md:max-w-[60px] w-[50px] ${className}`}
       alt={src}
       src={`./img/${src}`}
     />

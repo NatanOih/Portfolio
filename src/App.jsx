@@ -25,7 +25,7 @@ function App() {
   }, []);
 
   return (
-    <div className="app  ">
+    <div className="app">
       <Cursor scaling={scaling} mouseBoundries={mouseBoundries} />
       <NavBar
         isTopOfPage={isTopOfPage}
@@ -50,7 +50,7 @@ function App() {
       />
 
       <Skills setMouseBoundries={setMouseBoundries} />
-      <Projects />
+      {/* <Projects /> */}
     </div>
   );
 }
