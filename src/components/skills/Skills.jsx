@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { useMediaQuery } from "../../hooks/useMediaQuery";
 import { Tech } from "./Tech";
+import { MaskElement } from "./MaskElement";
 
 export const Skills = ({ isAboveMediumScreens, setMouseBoundries }) => {
   const isAboveMeduimScreens = useMediaQuery("(min-width: 1060px)");
@@ -26,8 +27,8 @@ export const Skills = ({ isAboveMediumScreens, setMouseBoundries }) => {
   const handleTransition = () => {
     isRevealed
       ? setTransition("clip-path 0.1s")
-      : setTransition("clip-path 3s");
-    window.removeEventListener("mousemove", handleMouseMove);
+      : setTransition("clip-path 2.5s");
+    window.removeEventListener("mousemove", () => {});
     setIsRevealed(!isRevealed);
   };
 
@@ -50,23 +51,20 @@ export const Skills = ({ isAboveMediumScreens, setMouseBoundries }) => {
     };
   }, []);
 
-  const MaskElement = () => {
-    return (
-      <motion.div className="bg-[#111] h-[100%] w-[100%] p-10 py-28 flex flex-col child2 ">
-        <h3 className=" font-playfair font-semibold text-center text-8xl p-1 mb-5 text-slate-200 ">
-          MY
-          <span className="border-4 bg-slate-500 border-slate-900 hello2">
-            SKILLS
-          </span>
-        </h3>
-
-        <div className="z-100 ml-[10vw] mt-auto ">
-          {" "}
-          <h2 className="text-4xl tracking-widest text-white "> !!! </h2>
-        </div>
-      </motion.div>
-    );
-  };
+  const frontEndImg = [
+    { name: "HTML/CSS", path: "coding.png" },
+    { name: "JavaScript", path: "js.png" },
+    { name: "React", path: "react.png" },
+    { name: "TailwindCSS", path: "tailwind-css-icon.png" },
+    { name: "Redux", path: "redux-icon.png" },
+  ];
+  const backEndImg = [
+    { name: "nodeJS", path: "node-js-icon.png" },
+    { name: "expressJs", path: "express-js-icon.png" },
+    { name: "API", path: "api-icon.png" },
+    { name: "NextJS", path: "nextjs-icon.png" },
+    { name: "python", path: "python-programming-language-icon.png" },
+  ];
 
   return (
     <div
@@ -79,7 +77,7 @@ export const Skills = ({ isAboveMediumScreens, setMouseBoundries }) => {
         }}
         style={!isRevealed ? mask : mask2}
         id="skills"
-        className={`bg-white  p-10 py-28 h-[100%] flex flex-col w-[100%] child1`}
+        className={`bg-white p-10 py-28 h-[100%] flex flex-col w-[100%] child1`}
       >
         {/* HEADER */}
         <h3 className=" font-playfair font-semibold  text-center text-8xl p-1  mb-5 bg-slate-200 border-black ">
@@ -88,23 +86,25 @@ export const Skills = ({ isAboveMediumScreens, setMouseBoundries }) => {
             SKILLS
           </span>
         </h3>
-        <div className="md:flex gap-20 p-2 justify-center">
-          <Tech />
-          <Tech />
+
+        {/* TECHS */}
+        <div className="md:flex gap-20 mt-12 p-1  justify-center">
+          <Tech title="frontend development" techList={frontEndImg} />
+          <Tech title="backend development" techList={backEndImg} />
         </div>
 
+        {/* BVUTTON  */}
         <motion.div className="z-100 ml-[10vw] mt-auto ">
           <h2
             onClick={handleTransition}
-            className="text-4xl tracking-widest text-black cursor-pointer "
+            className="text-4xl tracking-widest w-[50px]  text-black cursor-pointer "
           >
-            {" "}
-            !!!{" "}
+            !!!
           </h2>
         </motion.div>
       </section>
 
-      <MaskElement />
+      <MaskElement handleTransition={handleTransition} />
     </div>
   );
 };

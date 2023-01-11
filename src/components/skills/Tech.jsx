@@ -1,25 +1,21 @@
 import React from "react";
 import { Icon } from "./Icon";
 
-export const Tech = () => {
-  const frontEndImg = [
-    { name: "HTML/CSS", path: "coding.png" },
-    { name: "JavaScript", path: "js.png" },
-    { name: "React", path: "react.png" },
-    { name: "TailwindCSS", path: "tailwind-css-icon.png" },
-    { name: "Redux", path: "redux-icon.png" },
-  ];
+export const Tech = ({ title, techList }) => {
   return (
-    <div className="flex flex-col gap-6 mt-4 border-2 p-6 ">
-      <div className="flex justify-center">
-        <h3 className="text-center m-2"> Frontend Development </h3>
-        <Icon src="website-design-icon.png" />
+    <div className="flex z-30 flex-col gap-2 w-[28%] mt-2 border-2 p-3 ">
+      <div className="flex justify-center border-8 bg-purple-300 border-black">
+        <h3 className="text-center text-6xl m-1"> {title} </h3>
+        <Icon
+          className="my-auto ml-auto mr-10 w-[125px]"
+          src={`${title}.png`}
+        />
       </div>
 
-      {frontEndImg.map((skill, id) => (
-        <article key={id} className="flex   p-4">
-          <h4 className="my-auto text-left mr-8 text-2xl"> {skill.name}</h4>
-          <Icon className="my-auto ml-auto  p-1" src={skill.path} />
+      {techList.map((skill, id) => (
+        <article key={id} className="flex ">
+          {/* <h4 className="my-auto text-left text-4xl"> {skill.name}</h4> */}
+          <Icon className="my-auto mx-auto p-1 w-[60px]" src={skill.path} />
         </article>
       ))}
     </div>

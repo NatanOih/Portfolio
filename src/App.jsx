@@ -8,6 +8,7 @@ import { Dotgroup } from "./components/DotGroup/Dotgroup";
 import { Skills } from "./components/skills/Skills";
 import { Projects } from "./components/Projects/Projects";
 import { BigText } from "./components/Landing/BigText";
+
 function App() {
   const [scaling, setscaling] = useState(false);
   const [selectedPage, setSelectedPage] = useState("home");
@@ -50,6 +51,7 @@ function App() {
       />
 
       <Skills setMouseBoundries={setMouseBoundries} />
+
       {/* <Projects /> */}
     </div>
   );

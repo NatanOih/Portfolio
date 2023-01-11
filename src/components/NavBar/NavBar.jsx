@@ -12,7 +12,7 @@ const NavBar = ({ isTopOfPage, setscaling, selectedPage, setSelectedPage }) => {
   };
   const isAboveMeduimScreens = useMediaQuery("(min-width: 1060px)");
 
-  const navBarBackground = isTopOfPage ? "" : "bg-[#1111] opacity-80";
+  const navBarBackground = isTopOfPage ? "" : "bg-[#1111] opacity-30";
   isAboveMeduimScreens && nav && setNav(false);
   return (
     <nav
