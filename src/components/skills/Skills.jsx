@@ -3,11 +3,18 @@ import { motion } from "framer-motion";
 import { useMediaQuery } from "../../hooks/useMediaQuery";
 import { Tech } from "./Tech";
 import { MaskElement } from "./MaskElement";
+import { Icon } from "./Icon";
 
 export const Skills = ({ isAboveMediumScreens, setMouseBoundries }) => {
   const isAboveMeduimScreens = useMediaQuery("(min-width: 1060px)");
   const [isRevealed, setIsRevealed] = useState(false);
   const spotLight = useRef();
+  const [ShowSkills, setShowSkills] = useState("opacity-0");
+  const [skillCard, setSkillCard] = useState({
+    title: "",
+    whatToShow: [{ name: "", path: "" }],
+  });
+
   const [mouse, setMouse] = useState({ x: 0, y: 0 });
   const [transition, setTransition] = useState(
     "opacity 1s cubic-bezier(0.77, 0, 0.175, 1)"
@@ -59,10 +66,11 @@ export const Skills = ({ isAboveMediumScreens, setMouseBoundries }) => {
     { name: "Redux", path: "redux-icon.png" },
   ];
   const backEndImg = [
-    { name: "nodeJS", path: "node-js-icon.png" },
-    { name: "expressJs", path: "express-js-icon.png" },
-    { name: "API", path: "api-icon.png" },
-    { name: "NextJS", path: "nextjs-icon.png" },
+    { name: "nodeJS", path: "node.png" },
+    { name: "expressJs", path: "expressjs.png" },
+    // { name: "API", path: "api-icon.png" },
+    { name: "mongodb", path: "mongo.png" },
+    { name: "Nextjs", path: "Nextjs-logo.png" },
     { name: "python", path: "python-programming-language-icon.png" },
   ];
 
@@ -88,12 +96,50 @@ export const Skills = ({ isAboveMediumScreens, setMouseBoundries }) => {
         </h3>
 
         {/* TECHS */}
-        <div className="md:flex gap-20 mt-12 p-1  justify-center">
-          <Tech title="frontend development" techList={frontEndImg} />
-          <Tech title="backend development" techList={backEndImg} />
+        <div className="md:flex gap-20 mt-12 p-1 justify-center">
+          <div className="">
+            <img
+              onMouseEnter={() => {
+                setSkillCard({
+                  title: "frontend development",
+                  whatToShow: frontEndImg,
+                });
+                setShowSkills("opacity-100");
+              }}
+              onMouseLeave={() => {
+                setShowSkills("opacity-0");
+              }}
+              className="cursor-pointer w-[225px]"
+              alt="ascasc"
+              src="./img/frontend development.png"
+            />
+            <img
+              onMouseEnter={() => {
+                setSkillCard({
+                  title: "backend development",
+                  whatToShow: backEndImg,
+                });
+                setShowSkills("opacity-100");
+              }}
+              onMouseLeave={() => {
+                setShowSkills("opacity-0");
+              }}
+              className="cursor-pointer w-[225px]"
+              alt="ascasc"
+              src="./img/backend development.png"
+            />
+          </div>
+
+          <div>
+            <Tech
+              className={`${ShowSkills} `}
+              title={skillCard.title}
+              techList={skillCard.whatToShow}
+            />
+          </div>
         </div>
 
-        {/* BVUTTON  */}
+        {/* BUTTON  */}
         <motion.div className="z-100 ml-[10vw] mt-auto ">
           <h2
             onClick={handleTransition}
