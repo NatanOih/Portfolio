@@ -53,6 +53,16 @@ function App() {
       <Skills setMouseBoundries={setMouseBoundries} />
 
       {/* <Projects /> */}
+
+      <section className=" p-5 reletive h-[50%] w-full absolute ">
+        <h1 className="text-center h-[100%] w-full text-8xl justify-center ">
+          Hello to everybody visiting this site , my name is
+          <p className="text-red-500 underline  underline-offset-1">
+            Natan oihman
+          </p>
+          and this is still a work in progress
+        </h1>
+      </section>
     </div>
   );
 }
