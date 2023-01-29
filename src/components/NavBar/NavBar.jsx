@@ -13,7 +13,9 @@ const NavBar = ({ isTopOfPage, setscaling, selectedPage, setSelectedPage }) => {
   };
   const isAboveMeduimScreens = useMediaQuery("(min-width: 1060px)");
 
-  const navBarBackground = isTopOfPage ? "" : "bg-[#1111] opacity-30";
+  const navBarBackground = isTopOfPage
+    ? ""
+    : "bg-[#1111] opacity-40 hover:opacity-100";
   isAboveMeduimScreens && nav && setNav(false);
 
   return (
@@ -29,11 +31,11 @@ const NavBar = ({ isTopOfPage, setscaling, selectedPage, setSelectedPage }) => {
             left: -50,
             right: isAboveMeduimScreens ? 800 : 400,
           }}
-          dragElastic={0.5}
-          dragTransition={{ bounceStiffness: 700, bounceDamping: 10 }}
+          dragElastic={1}
+          dragTransition={{ bounceStiffness: 100, bounceDamping: 10 }}
           onMouseEnter={() => setscaling(true)}
           onMouseLeave={() => setscaling(false)}
-          className={`logo md:ml-[10%] ml-[20%] text-3xl font-bold underline px-6 pb-10 bg-neutral-900 ${
+          className={`logo md:ml-[10%] ml-[20%] text-3xl font-bold underline px-6 pb-10 bg-neutral-900  ${
             !nav ? "" : "hello"
           }`}
         >

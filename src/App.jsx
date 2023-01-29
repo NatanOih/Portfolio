@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import NavBar from "./components/NavBar/NavBar";
 import "./App.css";
-import { Leaf } from "./components/Leaf";
+
 import Cursor from "./components/Cursor/Cursor";
 import { useMediaQuery } from "./hooks/useMediaQuery";
 import { Dotgroup } from "./components/DotGroup/Dotgroup";

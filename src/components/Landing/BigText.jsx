@@ -44,12 +44,12 @@ export const BigText = ({ scaling, setSelectedPage, setscaling }) => {
   const shiftNerrow = ["1.5vw", "5vw", "6vw", "4vw", "1.5vw"];
 
   const wideScreenText =
-    "tracking-[2.2vw] text-[9.8vw] h-[0.4vw] m-2.5 leading-[1.1vw] ";
+    "tracking-[2.5vw] text-[9.5vw] h-[0.5vw] m-2.5 leading-[1.1vw] ";
   const nerrowScreenText =
     "text-[13vw] tracking-[1.1vw] h-[5vw] leading-[4.3vw]";
   return (
-    <section className="  h-[100%] p-2 md:mt-10 mt-24">
-      <div className="z-200 flex flex-wrap m-[2vw] my-12 font-extrabold BigTextStyles">
+    <section className=" h-full md:mt-10 mt-24">
+      <div className="z-100 flex flex-wrap m-[1vw] p-12 font-extrabold BigTextStyles">
         {text.map((word, id) => {
           return (
             <div
@@ -69,7 +69,8 @@ export const BigText = ({ scaling, setSelectedPage, setscaling }) => {
                 variants={textReveal}
                 initial="hidden"
                 animate="visible"
-                style={id === text.length - 1 && { color: "#FF0032" }}
+                // style={id === text.length - 1 && { color: "#FF0032" }}
+                style={id === text.length - 1 && { color: "#D61355" }}
                 transition={{
                   duration: 1,
                   delay: id === text.length - 1 ? 2.6 : id * 0.4,

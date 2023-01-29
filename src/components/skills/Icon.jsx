@@ -1,5 +1,12 @@
 import React from "react";
 
 export const Icon = ({ src, className }) => {
-  return <img className={` ${className}`} alt={src} src={`./img/${src}`} />;
+  return (
+    <img
+      style={{ filter: "grayscale(20%)" }}
+      className={` ${className}`}
+      alt={src}
+      src={`./img/${src}`}
+    />
+  );
 };

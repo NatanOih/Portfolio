@@ -61,22 +61,31 @@ export const Skills = ({ isAboveMediumScreens, setMouseBoundries }) => {
   const frontEndImg = [
     { name: "HTML/CSS", path: "coding.png" },
     { name: "JavaScript", path: "js.png" },
+    { name: "TypeScript", path: "ts.png" },
     { name: "React", path: "react.png" },
-    { name: "TailwindCSS", path: "tailwind-css-icon.png" },
     { name: "Redux", path: "redux-icon.png" },
+    { name: "TailwindCSS", path: "tailwind-css-icon.png" },
+    { name: "Bootstrap", path: "bootstrap.png" },
+    { name: "matirialui", path: "matirialui.png" },
+    { name: "styled-components", path: "styled-components.png" },
+    { name: "gsap", path: "gsap.png" },
   ];
   const backEndImg = [
     { name: "nodeJS", path: "node.png" },
     { name: "expressJs", path: "expressjs.png" },
-    // { name: "API", path: "api-icon.png" },
-    { name: "mongodb", path: "mongo.png" },
     { name: "Nextjs", path: "Nextjs-logo.png" },
-    { name: "python", path: "python-programming-language-icon.png" },
+    { name: "API", path: "api-icon.png" },
+    { name: "mongodb", path: "mongo.png" },
+    { name: "SQL", path: "sql.png" },
+    { name: "npm", path: "npm.png" },
+    { name: "git", path: "git.png" },
+
+    { name: "python", path: "python.png" },
   ];
 
   return (
     <div
-      className={`parant ${!isRevealed && "cursor-none"} h-[100vh]`}
+      className={`parant  ${!isRevealed && "cursor-none"} min-h-[100vh]`}
       ref={spotLight}
     >
       <section
@@ -85,7 +94,7 @@ export const Skills = ({ isAboveMediumScreens, setMouseBoundries }) => {
         }}
         style={!isRevealed ? mask : mask2}
         id="skills"
-        className={`bg-white p-10 py-28 h-[100%] flex flex-col w-[100%] child1`}
+        className={`bg-white p-10 py-28 h-[100%]  flex flex-col w-[100%] child1`}
       >
         {/* HEADER */}
         <h3 className=" font-playfair font-semibold  text-center text-8xl p-1  mb-5 bg-slate-200 border-black ">
@@ -96,8 +105,8 @@ export const Skills = ({ isAboveMediumScreens, setMouseBoundries }) => {
         </h3>
 
         {/* TECHS */}
-        <div className="md:flex gap-20 mt-12 p-1 justify-center">
-          <div className="">
+        <div className=" mt-12 p-1 ">
+          <div className="flex flex-row gap-20 justify-center">
             <img
               onMouseEnter={() => {
                 setSkillCard({
@@ -109,7 +118,7 @@ export const Skills = ({ isAboveMediumScreens, setMouseBoundries }) => {
               onMouseLeave={() => {
                 setShowSkills("opacity-0");
               }}
-              className="cursor-pointer w-[225px]"
+              className="cursor-pointer w-[200px]"
               alt="ascasc"
               src="./img/frontend development.png"
             />
@@ -124,19 +133,17 @@ export const Skills = ({ isAboveMediumScreens, setMouseBoundries }) => {
               onMouseLeave={() => {
                 setShowSkills("opacity-0");
               }}
-              className="cursor-pointer w-[225px]"
+              className="cursor-pointer w-[200px]"
               alt="ascasc"
               src="./img/backend development.png"
             />
           </div>
 
-          <div>
-            <Tech
-              className={`${ShowSkills} `}
-              title={skillCard.title}
-              techList={skillCard.whatToShow}
-            />
-          </div>
+          <Tech
+            className={`${ShowSkills} `}
+            title={skillCard.title}
+            techList={skillCard.whatToShow}
+          />
         </div>
 
         {/* BUTTON  */}
