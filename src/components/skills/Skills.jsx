@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { motion } from "framer-motion";
+import { motion, useAnimationControls } from "framer-motion";
 import { useMediaQuery } from "../../hooks/useMediaQuery";
 import { Tech } from "./Tech";
 import { MaskElement } from "./MaskElement";
@@ -14,6 +14,24 @@ export const Skills = ({ isAboveMediumScreens, setMouseBoundries }) => {
     title: "",
     whatToShow: [{ name: "", path: "" }],
   });
+
+  const controls = useAnimationControls();
+
+  useEffect(() => {
+    if (isRevealed === true) {
+      controls.start({
+        y: 0,
+        opacity: 1,
+        transition: { duration: 0.7, delay: 0.7, ease: "easeInOut" },
+      });
+    } else {
+      controls.start({
+        y: -100,
+        opacity: 0,
+        transition: { duration: 0.1 },
+      });
+    }
+  }, [isRevealed]);
 
   const [mouse, setMouse] = useState({ x: 0, y: 0 });
   const [transition, setTransition] = useState(
@@ -79,9 +97,14 @@ export const Skills = ({ isAboveMediumScreens, setMouseBoundries }) => {
     { name: "SQL", path: "sql.png" },
     { name: "npm", path: "npm.png" },
     { name: "git", path: "git.png" },
-
     { name: "python", path: "python.png" },
   ];
+
+  const selectorVariants = {
+    hidden: { y: -50, opacity: 0 },
+    visible: { y: 0, opacity: 1, transition: { duration: 1, delay: 1 } },
+    hover: {},
+  };
 
   return (
     <div
@@ -106,8 +129,11 @@ export const Skills = ({ isAboveMediumScreens, setMouseBoundries }) => {
 
         {/* TECHS */}
         <div className=" mt-12 p-1 ">
-          <div className="flex flex-row gap-20 justify-center">
-            <img
+          <div className={`flex flex-row gap-20 justify-center`}>
+            <motion.img
+              // variants={isRevealed ? selectorVariants : ""}
+              initial={{ y: -100, opacity: 0 }}
+              animate={controls}
               onMouseEnter={() => {
                 setSkillCard({
                   title: "frontend development",
@@ -118,11 +144,15 @@ export const Skills = ({ isAboveMediumScreens, setMouseBoundries }) => {
               onMouseLeave={() => {
                 setShowSkills("opacity-0");
               }}
-              className="cursor-pointer w-[200px]"
+              className={`${
+                !isRevealed ? "cursor-none" : "cursor-pointer"
+              } w-[200px]`}
               alt="ascasc"
               src="./img/frontend development.png"
             />
-            <img
+            <motion.img
+              initial={{ y: -100, opacity: 0 }}
+              animate={controls}
               onMouseEnter={() => {
                 setSkillCard({
                   title: "backend development",
@@ -133,7 +163,9 @@ export const Skills = ({ isAboveMediumScreens, setMouseBoundries }) => {
               onMouseLeave={() => {
                 setShowSkills("opacity-0");
               }}
-              className="cursor-pointer w-[200px]"
+              className={`${
+                !isRevealed ? "cursor-none" : "cursor-pointer"
+              } w-[200px]`}
               alt="ascasc"
               src="./img/backend development.png"
             />

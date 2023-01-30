@@ -4,7 +4,7 @@ import { Icon } from "./Icon";
 export const Tech = ({ title, techList, className }) => {
   return (
     <div
-      className={` z-30 bg-red-300 rounded-2xl w-[80%] m-12 mx-auto p-3 ${className} `}
+      className={` z-30 bg-red-300 rounded-2xl w-[80%] m-12 mx-auto p-3 ${className} icon `}
     >
       <div className="max-w-[450px] m-auto max-h-[450px] border-8 bg-purple-300 border-black">
         <h3 className=" m-auto text-center text-6xl "> {title} </h3>
