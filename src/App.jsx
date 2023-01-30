@@ -60,7 +60,8 @@ function App() {
           <p className="text-red-500 underline  underline-offset-1">
             Natan oihman
           </p>
-          and this is still a work in progress
+          this site is under construction and will be finished soon, hope it
+          leaves a good impression
         </h1>
       </section>
     </div>
