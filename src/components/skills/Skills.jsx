@@ -3,13 +3,12 @@ import { motion, useAnimationControls } from "framer-motion";
 import { useMediaQuery } from "../../hooks/useMediaQuery";
 import { Tech } from "./Tech";
 import { MaskElement } from "./MaskElement";
-import { Icon } from "./Icon";
 
 export const Skills = ({ isAboveMediumScreens, setMouseBoundries }) => {
   const isAboveMeduimScreens = useMediaQuery("(min-width: 1060px)");
   const [isRevealed, setIsRevealed] = useState(false);
   const spotLight = useRef();
-  const [ShowSkills, setShowSkills] = useState("opacity-0");
+  const [ShowSkills, setShowSkills] = useState(false);
   const [skillCard, setSkillCard] = useState({
     title: "",
     whatToShow: [{ name: "", path: "" }],
@@ -22,13 +21,19 @@ export const Skills = ({ isAboveMediumScreens, setMouseBoundries }) => {
       controls.start({
         y: 0,
         opacity: 1,
-        transition: { duration: 0.7, delay: 0.7, ease: "easeInOut" },
+        transition: {
+          type: "spring",
+          stiffness: 100,
+          duration: 0.7,
+          delay: 0.6,
+          ease: "easeInOut",
+        },
       });
     } else {
       controls.start({
         y: -100,
         opacity: 0,
-        transition: { duration: 0.1 },
+        transition: { duration: 0.01 },
       });
     }
   }, [isRevealed]);
@@ -52,9 +57,10 @@ export const Skills = ({ isAboveMediumScreens, setMouseBoundries }) => {
   const handleTransition = () => {
     isRevealed
       ? setTransition("clip-path 0.1s")
-      : setTransition("clip-path 2.5s");
+      : setTransition("clip-path 1s");
     window.removeEventListener("mousemove", () => {});
     setIsRevealed(!isRevealed);
+    setShowSkills(false);
   };
 
   const handleMouseMove = (event) => {
@@ -100,15 +106,14 @@ export const Skills = ({ isAboveMediumScreens, setMouseBoundries }) => {
     { name: "python", path: "python.png" },
   ];
 
-  const selectorVariants = {
-    hidden: { y: -50, opacity: 0 },
-    visible: { y: 0, opacity: 1, transition: { duration: 1, delay: 1 } },
-    hover: {},
-  };
+  const experitesFields = [
+    { title: "frontend development", whatToShow: frontEndImg },
+    { title: "backend development", whatToShow: backEndImg },
+  ];
 
   return (
     <div
-      className={`parant  ${!isRevealed && "cursor-none"} min-h-[100vh]`}
+      className={`parant  ${!isRevealed && "cursor-none"} min-h-[110vh]`}
       ref={spotLight}
     >
       <section
@@ -129,9 +134,64 @@ export const Skills = ({ isAboveMediumScreens, setMouseBoundries }) => {
 
         {/* TECHS */}
         <div className=" mt-12 p-1 ">
-          <div className={`flex flex-row gap-20 justify-center`}>
-            <motion.img
-              // variants={isRevealed ? selectorVariants : ""}
+          <div className={`flex flex-row gap-40 justify-center`}>
+            {experitesFields.map((field, index) => {
+              return (
+                <motion.img
+                  key={index}
+                  initial={{ y: -100, opacity: 0 }}
+                  animate={controls}
+                  onMouseEnter={() => {
+                    setSkillCard(field);
+
+                    setShowSkills(false);
+                    setTimeout(() => {
+                      setShowSkills(true);
+                    }, 200);
+                  }}
+                  // onMouseLeave={() => {
+                  //   setShowSkills(false);
+                  // }}
+                  className={`${
+                    !isRevealed ? "cursor-none" : "cursor-pointer"
+                  } w-[200px]`}
+                  alt="ascasc"
+                  src={`./img/${field.title}.png`}
+                />
+              );
+            })}
+          </div>
+
+          {ShowSkills && isRevealed && (
+            <Tech
+              isRevealed={isRevealed}
+              controls={controls}
+              className={""}
+              ShowSkills={ShowSkills}
+              title={skillCard.title}
+              techList={skillCard.whatToShow}
+            />
+          )}
+        </div>
+
+        {/* BUTTON  */}
+        <motion.div className="z-100 ml-[10vw] mt-auto ">
+          <h2
+            onClick={handleTransition}
+            className="text-4xl tracking-widest w-[50px]  text-black cursor-pointer "
+          >
+            !!!
+          </h2>
+        </motion.div>
+      </section>
+
+      <MaskElement handleTransition={handleTransition} />
+    </div>
+  );
+};
+
+{
+  /* <motion.img
               initial={{ y: -100, opacity: 0 }}
               animate={controls}
               onMouseEnter={() => {
@@ -168,28 +228,5 @@ export const Skills = ({ isAboveMediumScreens, setMouseBoundries }) => {
               } w-[200px]`}
               alt="ascasc"
               src="./img/backend development.png"
-            />
-          </div>
-
-          <Tech
-            className={`${ShowSkills} `}
-            title={skillCard.title}
-            techList={skillCard.whatToShow}
-          />
-        </div>
-
-        {/* BUTTON  */}
-        <motion.div className="z-100 ml-[10vw] mt-auto ">
-          <h2
-            onClick={handleTransition}
-            className="text-4xl tracking-widest w-[50px]  text-black cursor-pointer "
-          >
-            !!!
-          </h2>
-        </motion.div>
-      </section>
-
-      <MaskElement handleTransition={handleTransition} />
-    </div>
-  );
-};
+            /> */
+}
