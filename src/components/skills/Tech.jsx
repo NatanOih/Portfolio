@@ -67,7 +67,7 @@ export const Tech = ({
                 duration: 1.5,
                 type: "spring",
                 stiffness: 500,
-                delay: 0.12 * id,
+                delay: 0.3 + 0.12 * id,
               }}
               key={id}
               className="border-4 bg-white border-black shadow hover:scale-150 "
