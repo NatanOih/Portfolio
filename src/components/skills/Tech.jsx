@@ -61,13 +61,13 @@ export const Tech = ({
         {techList.map((skill, id) => {
           return (
             <motion.div
-              initial={{ scale: 0.1, opacity: 0 }}
+              initial={{ scale: 0, opacity: 0 }}
               animate={skillsControls}
               transition={{
                 duration: 1.5,
                 type: "spring",
                 stiffness: 500,
-                delay: 0.15 * id,
+                delay: 0.12 * id,
               }}
               key={id}
               className="border-4 bg-white border-black shadow hover:scale-150 "
