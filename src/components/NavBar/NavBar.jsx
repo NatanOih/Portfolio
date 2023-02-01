@@ -16,7 +16,9 @@ const NavBar = ({ setscaling, selectedPage, setSelectedPage, scrollY }) => {
   const navBarBackground =
     scrollY <= 0
       ? ""
-      : `bg-[#1111] translate-x-[-95%] opacity-40 hover:opacity-100 hover:translate-x-0`;
+      : `bg-[#1111] ${
+          isAboveMeduimScreens && "translate-x-[-95%]"
+        } opacity-40 hover:opacity-100 hover:translate-x-0`;
   isAboveMeduimScreens && nav && setNav(false);
 
   return (

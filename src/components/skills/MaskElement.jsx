@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 export const MaskElement = ({ handleTransition }) => {
   return (
-    <motion.div className="bg-[#111] h-[100%] w-[100%] p-10 py-28 flex flex-col child2 ">
+    <motion.div className="bg-[#111] h-[100%] w-[100%]  py-28 flex flex-col child2 ">
       <h3 className=" font-playfair font-semibold text-center text-8xl p-1 mb-5 text-slate-200 ">
         MY
         <span className="border-4 bg-slate-500 border-slate-900 hello2">

@@ -57,8 +57,8 @@ export const BigText = ({ scrollY, mouseBoundries, setSelectedPage }) => {
     "text-[13vw] tracking-[1.1vw] h-[5vw] leading-[4.3vw]";
 
   return (
-    <section className=" h-full md:mt-10 mt-24">
-      <div className="z-10 flex flex-wrap m-[1vw] p-12 font-extrabold BigTextStyles">
+    <section className=" h-full w-full mt-24">
+      <div className="z-10 flex flex-wrap m-[1vw] md:py-6 md:mt-[5vw] font-extrabold BigTextStyles">
         {text.map((word, id) => {
           return (
             <div
@@ -68,7 +68,7 @@ export const BigText = ({ scrollY, mouseBoundries, setSelectedPage }) => {
                   ? shiftWide[id]
                   : shiftNerrow[id],
               }}
-              className="container uppercase p-[3.5vw] whitespace-nowrap"
+              className="container uppercase md:p-[3.5vw] p-[4.5vw] whitespace-nowrap"
             >
               <motion.h1
                 className={`${

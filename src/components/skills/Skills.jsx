@@ -123,7 +123,7 @@ export const Skills = ({ isAboveMediumScreens, setMouseBoundries }) => {
         }}
         style={!isRevealed ? mask : mask2}
         id="skills"
-        className={`bg-white p-10 py-28 h-[100%]  flex flex-col w-[100%] child1`}
+        className={`bg-white py-28 h-[100%] flex flex-col w-[100%] child1`}
       >
         {/* HEADER */}
         <h3 className=" font-playfair font-semibold  text-center text-8xl p-1  mb-5 bg-slate-200 border-black ">
@@ -135,7 +135,7 @@ export const Skills = ({ isAboveMediumScreens, setMouseBoundries }) => {
 
         {/* TECHS */}
         <div className=" mt-12 p-1 ">
-          <div className={`flex flex-row gap-40 justify-center`}>
+          <div className={`flex flex-row md:gap-40 gap-20 justify-center`}>
             {experitesFields.map((field, index) => {
               return (
                 <motion.img
@@ -155,7 +155,7 @@ export const Skills = ({ isAboveMediumScreens, setMouseBoundries }) => {
                   // }}
                   className={`${
                     !isRevealed ? "cursor-none" : "cursor-pointer"
-                  } w-[200px]`}
+                  } md:w-[200px]  w-[150px]`}
                   alt="ascasc"
                   src={`./img/${field.title}.png`}
                 />
