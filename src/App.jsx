@@ -45,6 +45,16 @@ function App() {
       <Skills setMouseBoundries={setMouseBoundries} />
 
       <Projects />
+
+      <section className="reletive ">
+        <h1 className="text-8xl h-[50vh] p-20 text-center align-middle ">
+          {" "}
+          Hello everybody, my name is{" "}
+          <sapn className="text-red-800 underline"> Natan oihman</sapn> and this
+          is my Portfolio page, it is still a work in progress and i will add my
+          projects soon, hope it leaves a good impression
+        </h1>
+      </section>
     </main>
   );
 }

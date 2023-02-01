@@ -82,7 +82,7 @@ export const BigText = ({ scrollY, mouseBoundries, setSelectedPage }) => {
                 style={
                   id === text.length - 1
                     ? { color: "#D61355" }
-                    : scrollY < 1200 &&
+                    : scrollY < 1100 &&
                       Finished && {
                         translateY: `${scrollY * 1.2 * (id * 0.3 + 1)}px`,
                         transition: "all 1s ease-out",
@@ -93,9 +93,9 @@ export const BigText = ({ scrollY, mouseBoundries, setSelectedPage }) => {
                   delay: id === text.length - 1 ? 1.6 : id * 0.2,
                 }}
               >
-                {word.split("").map((letter, id) => (
+                {word.split("").map((letter, idd) => (
                   <motion.span
-                    key={id * 1.3}
+                    key={idd * 1.3}
                     variants={PopLetters}
                     initial="qwe"
                     animate="asd"
@@ -105,7 +105,11 @@ export const BigText = ({ scrollY, mouseBoundries, setSelectedPage }) => {
                     }}
                   >
                     <motion.span
-                      // style={{ translateY: `${scrollY * 0.03 * id}px` }}
+                      style={
+                        id !== text.length - 1 && {
+                          translateY: `${scrollY * 0.03 * idd}px`,
+                        }
+                      }
                       variants={spanVariants}
                       initial="regular"
                       whileHover="hover"

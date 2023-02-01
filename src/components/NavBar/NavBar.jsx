@@ -36,7 +36,8 @@ const NavBar = ({ setscaling, selectedPage, setSelectedPage, scrollY }) => {
           dragTransition={{ bounceStiffness: 100, bounceDamping: 10 }}
           onMouseEnter={() => setscaling(true)}
           onMouseLeave={() => setscaling(false)}
-          className={`logo md:ml-[10%] ml-[20%] text-3xl font-bold underline px-6 pb-10 bg-neutral-900  ${
+          // bg-neutral-900
+          className={`logo md:ml-[10%] ml-[20%] text-3xl font-bold underline px-6 pb-10 bg-[#03001C]  ${
             !nav ? "" : "hello"
           }`}
         >
