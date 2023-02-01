@@ -11,43 +11,42 @@ import { BigText } from "./components/Landing/BigText";
 import { Footer } from "./components/footer/footer";
 
 function App() {
-  // const [scaling, setscaling] = useState(false);
-  // const [selectedPage, setSelectedPage] = useState("home");
-  // const isAboveMeduimScreens = useMediaQuery("(min-width: 1060px)");
-  // const [mouseBoundries, setMouseBoundries] = useState(null);
+  const [scaling, setscaling] = useState(false);
+  const [selectedPage, setSelectedPage] = useState("home");
+  const isAboveMeduimScreens = useMediaQuery("(min-width: 1060px)");
+  const [mouseBoundries, setMouseBoundries] = useState(null);
 
-  // const [scrollY, setScrollY] = useState("0");
+  const [scrollY, setScrollY] = useState("0");
 
-  // useEffect(() => {
-  //   const handleScroll = () => {
-  //     setScrollY(window.scrollY);
-  //   };
-  //   window.addEventListener("scroll", handleScroll);
-  //   return () => window.removeEventListener("scroll", handleScroll);
-  // }, []);
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <main className="app">
-      <h1>safasf </h1>
-      {/* <Cursor scaling={scaling} mouseBoundries={mouseBoundries} />
+      <Cursor scaling={scaling} mouseBoundries={mouseBoundries} />
       <NavBar
         scrollY={scrollY}
         setscaling={setscaling}
         selectedPage={selectedPage}
         setSelectedPage={setSelectedPage}
-      /> */}
-      {/* 
+      />
+
       <BigText
         mouseBoundrie={mouseBoundries}
         scrollY={scrollY}
         setSelectedPage={setSelectedPage}
       />
 
-      <Skills setMouseBoundries={setMouseBoundries} /> */}
+      <Skills setMouseBoundries={setMouseBoundries} />
 
-      {/* <Projects /> */}
+      <Projects />
 
-      {/* <section className="reletive min-h-[50vh] w-full ">
+      <section className="reletive min-h-[50vh] w-full ">
         <h1 className="md:text-8xl text-4xl  p-20 text-center align-middle ">
           {" "}
           Hello everybody, my name is{" "}
@@ -55,9 +54,9 @@ function App() {
           is my Portfolio page, it is still a work in progress and i will add my
           projects soon, hope it leaves a good impression
         </h1>
-      </section> */}
+      </section>
 
-      {/* <Footer /> */}
+      <Footer />
     </main>
   );
 }
