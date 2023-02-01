@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { react } from "@vitejs/plugin-react";
 
 export const Footer = () => {
   const [clicked, setClicked] = useState(false);
