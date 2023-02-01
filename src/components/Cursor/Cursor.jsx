@@ -6,6 +6,7 @@ import { useMousePoistion } from "../../hooks/useMousePosition";
 const Cursor = ({ scaling, mouseBoundries }) => {
   const [largeCircle, setLargeCircle] = useState({ x: 0, y: 0 });
   const { x, y } = useMousePoistion();
+
   const pageY = useRef();
 
   useEffect(() => {

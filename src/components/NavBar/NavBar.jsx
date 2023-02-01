@@ -6,23 +6,24 @@ import { Mobilenav } from "./Mobilenav";
 import { Link } from "./Link";
 import { motion } from "framer-motion";
 
-const NavBar = ({ isTopOfPage, setscaling, selectedPage, setSelectedPage }) => {
+const NavBar = ({ setscaling, selectedPage, setSelectedPage, scrollY }) => {
   const [nav, setNav] = useState(false);
   const handleNav = () => {
     setNav(!nav);
   };
   const isAboveMeduimScreens = useMediaQuery("(min-width: 1060px)");
 
-  const navBarBackground = isTopOfPage
-    ? ""
-    : "bg-[#1111] opacity-40 hover:opacity-100";
+  const navBarBackground =
+    scrollY <= 0
+      ? ""
+      : `bg-[#1111] translate-x-[-95%] opacity-40 hover:opacity-100 hover:translate-x-0`;
   isAboveMeduimScreens && nav && setNav(false);
 
   return (
     <nav
-      className={`${navBarBackground} z-40 w-full fixed top-0 py-2 ease-in-out duration-500`}
+      className={`${navBarBackground} z-20 w-[105%] fixed top-0 py-2 ease-in-out duration-500`}
     >
-      <div className="w-full min-h-[50px] flex justify-between items-center z-10 border-y-2 bg-gray-100 border-neutral-900">
+      <div className="w-full min-h-[50px] flex justify-between items-center border-y-2 bg-gray-100 border-neutral-900">
         <motion.h1
           drag="x"
           whileHover={{ cursor: "grab", scale: 1.02 }}
@@ -68,9 +69,9 @@ const NavBar = ({ isTopOfPage, setscaling, selectedPage, setSelectedPage }) => {
                 setSelectedPage={setSelectedPage}
               />
             </span>
-            <span className="p-3 mr-2  font-bold">
+            <span className="p-3 mr-2 cursor-pointer  font-bold">
               <Link
-                page="Home"
+                page="---->"
                 selectedPage={selectedPage}
                 setSelectedPage={setSelectedPage}
               />

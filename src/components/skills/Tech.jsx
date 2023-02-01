@@ -27,7 +27,7 @@ export const Tech = ({
         stiffness: 100,
         ease: "easeInOut",
       }}
-      className={` z-30 bg-red-300 rounded-xl w-[80%] m-12 mx-auto p-3 shadow `}
+      className={` z-30 bg-red-300 rounded-xl w-[90%] m-12 mx-auto p-3 shadow `}
     >
       <motion.div
         initial={{ x: -250, opacity: 0 }}
@@ -73,7 +73,7 @@ export const Tech = ({
               className="border-4 bg-white border-black shadow hover:scale-150 "
             >
               <Icon
-                className="m-2 align-middle max-w-[100px] h-[60px]  "
+                className="m-2 align-middle max-w-[90px] h-[60px]  "
                 src={skill.path}
               />
             </motion.div>

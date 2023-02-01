@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import NavBar from "./components/NavBar/NavBar";
 import "./App.css";
+import { LocomotiveScrollProvider } from "react-locomotive-scroll";
 
 import Cursor from "./components/Cursor/Cursor";
 import { useMediaQuery } from "./hooks/useMediaQuery";
@@ -13,59 +14,50 @@ function App() {
   const [scaling, setscaling] = useState(false);
   const [selectedPage, setSelectedPage] = useState("home");
   const isAboveMeduimScreens = useMediaQuery("(min-width: 1060px)");
-  const [isTopOfPage, setIsTopOfPage] = useState(true);
   const [mouseBoundries, setMouseBoundries] = useState(null);
+
+  const [scrollY, setScrollY] = useState("0");
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY === 0) setIsTopOfPage(true);
-      if (window.scrollY !== 0) setIsTopOfPage(false);
+      setScrollY(window.scrollY);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
-    <div className="app">
+    <main className="app">
       <Cursor scaling={scaling} mouseBoundries={mouseBoundries} />
       <NavBar
-        isTopOfPage={isTopOfPage}
+        scrollY={scrollY}
         setscaling={setscaling}
         selectedPage={selectedPage}
         setSelectedPage={setSelectedPage}
       />
 
-      {isAboveMeduimScreens && (
+      <BigText
+        mouseBoundrie={mouseBoundries}
+        scrollY={scrollY}
+        setSelectedPage={setSelectedPage}
+      />
+
+      <Skills setMouseBoundries={setMouseBoundries} />
+
+      <Projects />
+    </main>
+  );
+}
+
+export default App;
+
+{
+  /* {isAboveMeduimScreens && (
         <div className="w-5/6 mx-auto md:h-full">
           <Dotgroup
             selectedPage={selectedPage}
             setSelectedPage={setSelectedPage}
           />
         </div>
-      )}
-
-      <BigText
-        scaling={scaling}
-        setscaling={setscaling}
-        setSelectedPage={setSelectedPage}
-      />
-
-      <Skills setMouseBoundries={setMouseBoundries} />
-
-      {/* <Projects /> */}
-
-      <section className=" p-5 reletive h-[50%] w-full  ">
-        <h1 className="text-center h-[100%] w-full text-8xl justify-center ">
-          Hello to everybody visiting this site , my name is
-          <p className="text-red-500 underline  underline-offset-1">
-            Natan oihman
-          </p>
-          this site is under construction and will be finished soon, hope it
-          leaves a good impression
-        </h1>
-      </section>
-    </div>
-  );
+      )} */
 }
-
-export default App;

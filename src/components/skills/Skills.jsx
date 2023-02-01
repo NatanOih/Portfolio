@@ -93,6 +93,7 @@ export const Skills = ({ isAboveMediumScreens, setMouseBoundries }) => {
     { name: "matirialui", path: "matirialui.png" },
     { name: "styled-components", path: "styled-components.png" },
     { name: "gsap", path: "gsap.png" },
+    { name: "motion", path: "motion.png" },
   ];
   const backEndImg = [
     { name: "nodeJS", path: "node.png" },

@@ -19,7 +19,7 @@ const projectVariant = {
 };
 
 const Project = ({ title }) => {
-  const overlayStyles = `absolute h-[100%] w-[100%] opacity-0 hover:opacity-90 transition duration-500
+  const overlayStyles = ` max-w-xl h-[250px] w-[250px] opacity-0 hover:opacity-90 transition duration-500
     bg-slate-900 z-30 flex flex-col justify-center items-center text-center p-16 text-blue-200`;
   const projectTitle = title.split(" ").join("-").toLowerCase();
 
@@ -29,7 +29,7 @@ const Project = ({ title }) => {
       whileInView={{ opacity: 1 }}
       viewport={{ once: false, amount: 0.1 }}
       transition={{ duration: 0.6 }}
-      className="relative"
+      className="flex"
     >
       <div className={overlayStyles}>
         <p className="text-2xl font-playfair">{title}</p>
@@ -43,7 +43,7 @@ const Project = ({ title }) => {
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: false, amount: 0.3 }}
         transition={{ duration: 0.8 }}
-        className=" contrast-150"
+        className=" max-w-xl w-[250px] h-[250px] absolute contrast-150"
         src={`./img/${projectTitle}.png`}
         alt={projectTitle}
       />

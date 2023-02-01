@@ -1,12 +1,20 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useMediaQuery } from "../../hooks/useMediaQuery";
 
-export const BigText = ({ scaling, setSelectedPage, setscaling }) => {
+export const BigText = ({ scrollY, mouseBoundries, setSelectedPage }) => {
   const isAboveMeduimScreens = useMediaQuery("(min-width: 1060px)");
+  const [Finished, setFinished] = useState(false);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setFinished(true);
+    }, 2500);
+  }, []);
+
   const textReveal = {
     hidden: {
-      y: "-200%",
+      y: "-100%",
       opacity: 0,
     },
     visible: {
@@ -47,9 +55,10 @@ export const BigText = ({ scaling, setSelectedPage, setscaling }) => {
     "tracking-[2.5vw] text-[9.5vw] h-[0.5vw] m-2.5 leading-[1.1vw] ";
   const nerrowScreenText =
     "text-[13vw] tracking-[1.1vw] h-[5vw] leading-[4.3vw]";
+
   return (
     <section className=" h-full md:mt-10 mt-24">
-      <div className="z-100 flex flex-wrap m-[1vw] p-12 font-extrabold BigTextStyles">
+      <div className="z-10 flex flex-wrap m-[1vw] p-12 font-extrabold BigTextStyles">
         {text.map((word, id) => {
           return (
             <div
@@ -65,15 +74,23 @@ export const BigText = ({ scaling, setSelectedPage, setscaling }) => {
                 className={`${
                   isAboveMeduimScreens ? wideScreenText : nerrowScreenText
                 }`}
-                key={id * 2.2}
+                key={id}
                 variants={textReveal}
                 initial="hidden"
                 animate="visible"
                 // style={id === text.length - 1 && { color: "#FF0032" }}
-                style={id === text.length - 1 && { color: "#D61355" }}
+                style={
+                  id === text.length - 1
+                    ? { color: "#D61355" }
+                    : scrollY < 1200 &&
+                      Finished && {
+                        translateY: `${scrollY * 1.2 * (id * 0.3 + 1)}px`,
+                        transition: "all 1s ease-out",
+                      }
+                }
                 transition={{
                   duration: 1,
-                  delay: id === text.length - 1 ? 2.6 : id * 0.4,
+                  delay: id === text.length - 1 ? 1.6 : id * 0.2,
                 }}
               >
                 {word.split("").map((letter, id) => (
@@ -84,10 +101,11 @@ export const BigText = ({ scaling, setSelectedPage, setscaling }) => {
                     animate="asd"
                     transition={{
                       duration: 0.4,
-                      delay: id === text.length - 1 ? 2.5 : id * 0.3,
+                      delay: id === text.length - 1 ? 1.5 : id * 0.1,
                     }}
                   >
                     <motion.span
+                      // style={{ translateY: `${scrollY * 0.03 * id}px` }}
                       variants={spanVariants}
                       initial="regular"
                       whileHover="hover"
