@@ -53,7 +53,7 @@ const Project = ({ title }) => {
 
 export const Projects = () => {
   return (
-    <section id="projects" className="pt-28 pb-48 bg-pink-700">
+    <section id="projects" className="pt-28 pb-48">
       {/* HEADING */}
 
       <motion.div

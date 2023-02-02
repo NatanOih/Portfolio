@@ -114,7 +114,9 @@ export const Skills = ({ isAboveMediumScreens, setMouseBoundries }) => {
 
   return (
     <div
-      className={`parant  ${!isRevealed && "cursor-none"} min-h-[110vh]`}
+      className={`parant relative  ${
+        !isRevealed && "cursor-none"
+      } min-h-[110vh]`}
       ref={spotLight}
     >
       <section

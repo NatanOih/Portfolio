@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import NavBar from "./components/NavBar/NavBar";
-// import "./App.css";
+import "./App.css";
 
 import Cursor from "./components/Cursor/Cursor";
 import { useMediaQuery } from "./hooks/useMediaQuery";
@@ -8,7 +8,7 @@ import { Dotgroup } from "./components/DotGroup/Dotgroup";
 import { Skills } from "./components/skills/Skills";
 import { Projects } from "./components/Projects/Projects";
 import { BigText } from "./components/Landing/BigText";
-import { Footer } from "./components/footer/footer";
+import { Footer } from "./components/footer/Footer";
 
 function App() {
   const [scaling, setscaling] = useState(false);
@@ -27,8 +27,9 @@ function App() {
   }, []);
 
   return (
-    <main className="app">
+    <main className="reletive">
       <Cursor scaling={scaling} mouseBoundries={mouseBoundries} />
+
       <NavBar
         scrollY={scrollY}
         setscaling={setscaling}
@@ -46,7 +47,7 @@ function App() {
 
       <Projects />
 
-      <section className="reletive min-h-[50vh] w-full ">
+      <section className="reletive min-h-[50vh] w-full border-black border-t-4 ">
         <h1 className="md:text-8xl text-4xl  p-20 text-center align-middle ">
           {" "}
           Hello everybody, my name is{" "}

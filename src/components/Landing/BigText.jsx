@@ -52,12 +52,12 @@ export const BigText = ({ scrollY, mouseBoundries, setSelectedPage }) => {
   const shiftNerrow = ["1.5vw", "5vw", "6vw", "4vw", "1.5vw"];
 
   const wideScreenText =
-    "tracking-[2.5vw] text-[9.5vw] h-[0.5vw] m-2.5 leading-[1.1vw] ";
+    "tracking-[3.1vw] text-[8.5vw] h-[1.1vw] m-2.1 leading-[1.5vw] ";
   const nerrowScreenText =
     "text-[13vw] tracking-[1.1vw] h-[5vw] leading-[4.3vw]";
 
   return (
-    <section className=" h-full w-full mt-24">
+    <section className="reletive h-[100%] w-full mt-24">
       <div className="z-10 flex flex-wrap m-[1vw] md:py-6 md:mt-[5vw] font-extrabold BigTextStyles">
         {text.map((word, id) => {
           return (
@@ -68,7 +68,7 @@ export const BigText = ({ scrollY, mouseBoundries, setSelectedPage }) => {
                   ? shiftWide[id]
                   : shiftNerrow[id],
               }}
-              className="container uppercase md:p-[3.5vw] p-[4.5vw] whitespace-nowrap"
+              className="container uppercase md:p-[3.15vw] p-[4.5vw] whitespace-nowrap"
             >
               <motion.h1
                 className={`${
@@ -95,12 +95,12 @@ export const BigText = ({ scrollY, mouseBoundries, setSelectedPage }) => {
               >
                 {word.split("").map((letter, idd) => (
                   <motion.span
-                    key={idd * 1.3}
+                    key={idd}
                     variants={PopLetters}
                     initial="qwe"
                     animate="asd"
                     transition={{
-                      duration: 0.4,
+                      duration: 0.7,
                       delay: id === text.length - 1 ? 1.5 : id * 0.1,
                     }}
                   >

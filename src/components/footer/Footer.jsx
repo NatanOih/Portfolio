@@ -13,15 +13,22 @@ export const Footer = () => {
   };
 
   return (
-    <footer className="reletive flex justify-between h-full w-auto align-middle bg-slate-900 my-12 p-10">
-      <span className=""> &copy; {new Date().getFullYear()}. Natan Oihman</span>
-      <span>
-        Reach me at
-        <span className="" onClick={handleClick}>
+    <footer className="absolute flex justify-between  h-100% w-full align-middle text-white bg-slate-900  p-8">
+      <span> &copy; {new Date().getFullYear()}. Natan Oihman</span>
+      <span className="whitespace-pre-line">
+        <p className="cursor-pointer" onClick={handleClick}>
           natanoih@gmail.com{" "}
-        </span>
+        </p>
       </span>
-      {clicked && <span animate={{ y: -25 }}> Copied </span>}{" "}
+      {clicked && (
+        <motion.span
+          className="absolute  right-4 bottom-8"
+          animate={{ y: -35 }}
+        >
+          {" "}
+          Copied{" "}
+        </motion.span>
+      )}{" "}
     </footer>
   );
 };

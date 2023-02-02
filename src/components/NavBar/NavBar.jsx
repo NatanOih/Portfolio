@@ -14,7 +14,7 @@ const NavBar = ({ setscaling, selectedPage, setSelectedPage, scrollY }) => {
   const isAboveMeduimScreens = useMediaQuery("(min-width: 1060px)");
 
   const navBarBackground =
-    scrollY <= 0
+    scrollY <= 100
       ? ""
       : `bg-[#1111] ${
           isAboveMeduimScreens && "translate-x-[-95%]"
