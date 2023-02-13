@@ -24,7 +24,7 @@ const images = [
   },
   {
     src: "https://images.unsplash.com/photo-1611145367651-6303b46e4040?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2006&q=100",
-    title: "Project Number 3",
+    title: "Project Number 4",
     subtitle: "Live Site / Code",
     category: "React / Tailwind , Etc",
   },
