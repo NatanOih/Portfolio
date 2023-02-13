@@ -9,6 +9,8 @@ import { Skills } from "./components/skills/Skills";
 import { Projects } from "./components/Projects/Projects";
 import { BigText } from "./components/Landing/BigText";
 import { Footer } from "./components/footer/Footer";
+import { Projects2 } from "./components/Projects/Projects2";
+import { Leaf } from "./components/Leaf";
 
 function App() {
   const [scaling, setscaling] = useState(false);
@@ -27,7 +29,7 @@ function App() {
   }, []);
 
   return (
-    <main className="reletive">
+    <main className="App">
       <Cursor scaling={scaling} mouseBoundries={mouseBoundries} />
 
       <NavBar
@@ -45,7 +47,7 @@ function App() {
 
       <Skills setMouseBoundries={setMouseBoundries} />
 
-      <Projects />
+      <Projects2 />
 
       <section className="reletive min-h-[50vh] w-full border-black border-t-4 ">
         <h1 className="md:text-8xl text-4xl  p-20 text-center align-middle ">

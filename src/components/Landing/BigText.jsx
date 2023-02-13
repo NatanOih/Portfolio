@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { useMediaQuery } from "../../hooks/useMediaQuery";
 
@@ -73,7 +73,7 @@ export const BigText = ({ scrollY, mouseBoundries, setSelectedPage }) => {
               <motion.h1
                 className={`${
                   isAboveMeduimScreens ? wideScreenText : nerrowScreenText
-                }`}
+                } ${scrollY > 1000 ? "invisible" : ""}`}
                 key={id}
                 variants={textReveal}
                 initial="hidden"
@@ -82,7 +82,7 @@ export const BigText = ({ scrollY, mouseBoundries, setSelectedPage }) => {
                 style={
                   id === text.length - 1
                     ? { color: "#D61355" }
-                    : scrollY < 1100 &&
+                    : scrollY < 3000 &&
                       Finished && {
                         translateY: `${scrollY * 1.2 * (id * 0.3 + 1)}px`,
                         transition: "all 1s ease-out",

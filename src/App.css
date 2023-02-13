@@ -144,9 +144,102 @@ body .root {
   font-family: "Anton", sans-serif;
   color: #03001c;
   box-shadow: 0px 0px 10vw rgba(33, 33, 33, 0.2);
-  border: 9px solid black;
+  border: 9px solid #03001c;
 }
 
 .shadow {
   box-shadow: -15px 15px 0px rgb(33, 33, 33, 1);
+}
+
+/* PROJECTS */
+
+.gallery-wrap {
+  background-color: #d53f41;
+  padding-left: 5vw;
+  padding-right: 5vw;
+  padding-top: 5vw;
+  min-height: 100vh;
+}
+
+.divider {
+  content: "";
+  background-color: white;
+  width: 6.25vw;
+  margin: 7px 10px;
+  height: 1px;
+  display: inline-block;
+}
+
+.gallery {
+  height: 80vh;
+
+  padding: 10vh 0;
+  width: 400%;
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.gallery-item-wrapper {
+  aspect-ratio: 16/9;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 20vw 1fr 400px;
+  width: 100vw;
+}
+
+.gallery-item {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  will-change: transform;
+}
+.gallery-item-image {
+  background-size: cover;
+  background-position: center;
+  transform-origin: center;
+  width: 100%;
+  height: 100%;
+  will-change: transform;
+  /* transform: scale(0.7); */
+  transition: all 1.5s cubic-bezier(0.77, 0, 0.175, 1);
+  filter: grayscale(100%) sepia(20%) brightness(80%);
+}
+
+.gallery-item-info {
+  position: absolute;
+  bottom: 10%;
+  z-index: 1;
+  transform: translateX(-20%);
+  color: #dbd8d6;
+  color: white;
+}
+
+.gallery-info-title {
+  line-height: 6vw;
+  font-family: "Bai Jamjuree";
+  font-weight: 600;
+
+  font-size: 6vw;
+  -webkit-font-smoothing: antialiased;
+}
+
+.gallery-info-subtitle {
+  position: relative;
+  line-height: 6vw;
+  color: transparent;
+  font-family: "Bodoni Moda";
+  font-weight: 400;
+  font-size: 6vw;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke: 2px #dbd8d6;
+}
+
+.gallery-info-category {
+  position: relative;
+  line-height: 24px;
+  font-family: "Bai Jamjuree";
+  font-weight: 400;
+  font-size: 24px;
+  -webkit-font-smoothing: antialiased;
+  margin-top: 2vh;
 }
